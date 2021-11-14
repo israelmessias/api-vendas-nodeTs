@@ -4,29 +4,37 @@ import Product from '../typeorm/entity/Product';
 import ProductRepository from '../typeorm/repository/ProductRespository';
 
 interface IRequest {
+  id: string;
   name: string;
   price: number;
   quantity: number;
 }
 
-class CreateProductService {
-  public async execute({ name, price, quantity }: IRequest): Promise<Product> {
+class UpdateProductService {
+  public async execute({
+    id,
+    name,
+    price,
+    quantity,
+  }: IRequest): Promise<Product> {
     const repository = getCustomRepository(ProductRepository);
-    //Se ja existe um produto ele lança a execeção productExists
+
+    const product = await repository.findOne(id);
+
+    if (!product) {
+      throw new AppError('Produto não encontrado.');
+    }
+
     const productExists = await repository.findByName(name);
 
     if (productExists) {
       throw new AppError('Já existe um produto com esse nome');
     }
 
-    //cria um produto com name, price, quantity
-    const product = repository.create({ name, price, quantity });
-
-    //
-    await repository.save(product);
+    product.name = name;
+    product.price = price;
+    product.quantity = quantity;
 
     return product;
   }
 }
-
-export default CreateProductService;
