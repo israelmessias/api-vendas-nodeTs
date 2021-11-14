@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import routes from './http/routes';
+import routes from './typeorm';
 import AppError from './errors/AppError';
 
 const app = express();
@@ -29,5 +29,5 @@ app.use(
 
 /*o listen cria a porta para o caminho*/
 app.listen(333, () => {
-  console.log('Server started on port 333! 🏆');
+  console.log('\n\t\tServer started on port 333! 🏆');
 });
