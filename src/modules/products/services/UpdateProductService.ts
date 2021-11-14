@@ -35,6 +35,8 @@ class UpdateProductService {
     product.price = price;
     product.quantity = quantity;
 
+    await repository.save(product);
+
     return product;
   }
 }
