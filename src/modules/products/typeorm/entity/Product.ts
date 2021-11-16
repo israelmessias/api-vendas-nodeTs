@@ -20,7 +20,7 @@ class Product {
   quantity: number;
 
   @CreateDateColumn()
-  created_at: Date;
+  create_at: Date;
 
   @CreateDateColumn()
   update_at: Date;
