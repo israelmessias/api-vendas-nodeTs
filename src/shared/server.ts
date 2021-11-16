@@ -23,7 +23,7 @@ app.use(
     /*Erro causado pelo servidor*/
     return response.status(500).json({
       status: 'error',
-      message: 'Internal Server Error',
+      message: 'Erro interno',
     });
   },
 );
