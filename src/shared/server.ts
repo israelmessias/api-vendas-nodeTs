@@ -9,6 +9,8 @@ const app = express();
 
 app.use(cors());
 //api trabalha com o padrão json
+app.use(express.json());
+
 app.use(routes);
 
 app.use(
@@ -29,6 +31,6 @@ app.use(
 );
 
 /*o listen cria a porta para o caminho*/
-app.listen(333, () => {
+app.listen(3333, () => {
   console.log('\n\t\tServer started on port 333! 🏆');
 });
