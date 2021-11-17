@@ -1,8 +1,3 @@
-import productsRouter from '@modules/products/routes/ProductsRouter';
-import { Router } from 'express';
+import { createConnection } from 'typeorm';
 
-const routes = Router();
-
-routes.use('/products', productsRouter);
-
-export default routes;
+createConnection();
