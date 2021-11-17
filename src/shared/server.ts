@@ -1,9 +1,10 @@
+import '@shared/typeorm/index';
 import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
-import routes from './typeorm';
-import AppError from './errors/AppError';
+import routes from './http/routes';
+import AppError from './http/errors/AppError';
 
 const app = express();
 
