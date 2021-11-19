@@ -33,5 +33,5 @@ app.use(
 
 /*o listen cria a porta para o caminho*/
 app.listen(3333, () => {
-  console.log('\n\t\tServer started on port 333! 🏆');
+  console.log('\n\t\tServer started on port 3333! 🏆');
 });
